@@ -8,12 +8,14 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Notfound from './pages/Notfound';
 
+import { GitHubProvider} from './context/GitHubContext';
+
 
 
 function App() {
   return (
     <Router>
-      <>
+      <GitHubProvider>
       <div className="container">
         <Navbar></Navbar>
         <main>
@@ -25,8 +27,7 @@ function App() {
         </main>
         <Footer></Footer>
       </div>
-      </>
-
+      </GitHubProvider>
     </Router>
   );
 }

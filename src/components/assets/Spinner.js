@@ -4,7 +4,7 @@ import spinner from "../assets/spinner.gif"
 function Spinner() {
   return (
     <div className="spinner">
-      <img src={spinner}></img>
+      <img src={spinner} alt="spinner"></img>
     </div>
   );
 }

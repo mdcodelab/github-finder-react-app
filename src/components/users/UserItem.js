@@ -5,7 +5,7 @@ function UserItem({user: {login, avatar_url} }) {
   return (
     <div className="card">  
         <div className="avatar">
-            <img src={avatar_url}></img>
+            <img src={avatar_url} alt="avatar"></img>
         </div>
         <div className="username">
             <h3>{login}</h3>
