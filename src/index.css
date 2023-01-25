@@ -1,0 +1,166 @@
+* {
+margin: 0; padding: 0;
+box-sizing: border-box;
+text-decoration: none;
+}
+
+body {
+    background-color: #444;
+}
+
+.container {
+    width: 90vw;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*===========
+Navbar
+=============
+*/
+
+.navbar-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.nav-link, .icon {
+    color: #e2e2e2;
+    transition: 0.5s ease-in-out;
+}
+
+.nav-link:hover, .icon:hover {
+    color: #ff6a95;
+}
+
+.navbar-logo, .navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    width: 9rem;
+    font-weight: 600;
+}
+
+.icon-logo {
+    color: #e2e2e2;
+    font-size: 2rem;
+}
+
+.navbar-links {
+    width: 12rem;
+}
+
+/*===========
+Footer
+=============
+*/
+
+.footer-container {
+    width: 35%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem 0;
+}
+
+.footer-container p{
+    color: #e2e2e2;
+    font-size: 0.8rem;
+    white-space:nowrap;
+}
+
+/*===========
+main
+=============
+*/
+main {
+    flex: 1;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+/*===========
+About, NotFound
+=============
+*/
+.home, .about, .notFound {
+    color: #e2e2e2;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.home p, .about p, .notFound p{
+    padding-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.title {
+    margin-bottom: 1rem;
+    letter-spacing: 0.2rem;
+}
+
+.notFound .link {
+    color: #e2e2e2;
+    display: block;
+    margin: 1.2rem auto 0;
+    width: 10rem;
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+    background-color: #8A2BE2;
+    border: 0.05rem solid  #e2e2e2;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+}
+
+.icon-home {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-right: 0.2rem;
+}
+
+.notFound .link:hover {
+    background-color: #ff6a95;
+}
+
+/*===========
+UserResults
+=============
+*/
+
+.users-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+    padding: 2rem 0;
+}
+
+@media only screen and (max-width: 700px) {
+    .users-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .users-container {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+}
