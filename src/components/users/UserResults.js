@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from "../assets/Spinner";
 
 function UserResults() {
 
@@ -24,7 +25,7 @@ function UserResults() {
       })}
     </div>)
   } else {
-    return <h3>Loading ...</h3>
+    return <Spinner></Spinner>
   }
 }
 
