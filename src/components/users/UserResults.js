@@ -1,5 +1,6 @@
 import React from 'react';
 import Spinner from "../assets/Spinner";
+import UserItem from "./UserItem";
 
 function UserResults() {
 
@@ -21,7 +22,7 @@ function UserResults() {
     return (
       <div className="users-container">
       {users.map((user, index) => {
-        return (<h3 key={index}>{user.login}</h3>)
+        return (<UserItem key={index} user={user}></UserItem>)
       })}
     </div>)
   } else {

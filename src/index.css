@@ -48,8 +48,11 @@ Navbar
 }
 
 .navbar-logo {
-    width: 9rem;
+    width: 10.5rem;
     font-weight: 600;
+    opacity: 0.7;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
 }
 
 .icon-logo {
@@ -149,8 +152,10 @@ UserResults
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    grid-gap: 2rem;
+    grid-gap: 1.5rem;
     padding: 2rem 0;
+    margin: 0 auto;
+    justify-items: center;
 }
 
 .spinner {
@@ -165,6 +170,12 @@ height: 100%;
 object-fit: cover;
 }
 
+@media only screen and (max-width: 900px) {
+    .users-container {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
 @media only screen and (max-width: 700px) {
     .users-container {
         grid-template-columns: repeat(2, 1fr); 
@@ -175,4 +186,64 @@ object-fit: cover;
     .users-container {
         grid-template-columns: repeat(1, 1fr); 
     }
+    .navbar-links {
+        width: 30%;
+    }
 }
+
+/*===========
+UserItem
+=============
+*/
+
+.card {
+width: 12rem;
+height: 10rem;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0px 2px 5px #666;
+background: #777;
+padding: 0.5rem;
+cursor: pointer;
+transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.avatar, .username{
+    flex: 1;
+}
+
+.avatar {
+    margin-right: 0.5rem;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.link-user {
+   color: #e2e2e2;
+   display: inline-block;
+   padding-top: 1rem;
+   font-size: 0.8rem; 
+   opacity: 0.7;
+   letter-spacing: 0.05rem;
+   transition: 0.3s ease-in-out;
+}
+
+.link-user:hover {
+    color: #ff6a95;
+}
+
+
+
+
+
+
