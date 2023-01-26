@@ -1,28 +1,35 @@
 import React from 'react';
+import gitHubReducer from "./GitHubReducer";
 
 const GitHubContext=React.createContext();
 
+const url = "https://api.github.com/users";
+
+const initialState={
+  users: [],
+  loading: true
+}
 
 const GitHubProvider = ({children}) => {
-    const[users, setUsers]=React.useState([]);
-  const[loading, setLoading]=React.useState(true);
+
+    const [state, dispatch] =React.useReducer(gitHubReducer, initialState);
 
   async function fetchUsers () {
-    const response = await fetch('https://api.github.com/users');
+    const response = await fetch(url);
     const data = await response.json();
-    setUsers(data);
-    setLoading(false);
+    return dispatch({type: "GET_USERS", payload: data})
   }
 
-  React.useEffect (() => {
+  React.useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [])
 
 
 
-    return <GitHubContext.Provider value={{
-        users,
-        loading
+    return <GitHubContext.Provider value ={{
+      users: state.users,
+      loading: state.loading,
+    
     }}>
         {children}
     </GitHubContext.Provider>
