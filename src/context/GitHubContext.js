@@ -30,15 +30,17 @@ const GitHubProvider = ({children}) => {
 
   //search users
   async function searchUsers(text) {
-    const params = new URLSearchParams({
-      q: text
-    })
     let response = await fetch(`https://api.github.com/search/users?q=${text}`);
     setLoading();
     let data = await response.json();
     let items=data.items;
     console.log(items);
     dispatch({type: "GET_USERS", payload: items})
+  }
+
+  //clear users
+  function clearUsers() {
+    dispatch({type: "CLEAR_USERS"});
   }
 
   
@@ -53,7 +55,8 @@ const GitHubProvider = ({children}) => {
     return <GitHubContext.Provider value ={{
       users: state.users,
       loading: state.loading,
-      searchUsers
+      searchUsers,
+      clearUsers
     }}>
         {children}
     </GitHubContext.Provider>

@@ -3,7 +3,7 @@ import { useGitHubGlobal } from '../../context/GitHubContext';
 
 function UserSearch() {
     const[text, setText]=React.useState("");
-    const{users, searchUsers}=useGitHubGlobal();
+    const{users, searchUsers, clearUsers}=useGitHubGlobal();
 
     function onChange(e) {
         setText(e.target.value);
@@ -28,9 +28,9 @@ function UserSearch() {
                 <button type="submit" className="btn btn-search">GO</button>
         </form>
         {users.length > 0 && (
-            <iv>
-                <button className="btn btn-clear">CLEAR</button>
-            </iv>
+            <div>
+                <button className="btn btn-clear" onClick={clearUsers}>CLEAR</button>
+            </div>
         )}
         
       </div>
