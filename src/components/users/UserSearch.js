@@ -3,7 +3,7 @@ import { useGitHubGlobal } from '../../context/GitHubContext';
 
 function UserSearch() {
     const[text, setText]=React.useState("");
-    const{users}=useGitHubGlobal();
+    const{users, searchUsers}=useGitHubGlobal();
 
     function onChange(e) {
         setText(e.target.value);
@@ -14,7 +14,8 @@ function UserSearch() {
         if(!text) {
             alert("Please enter something!");
         } else {
-            //ssearch users
+            //search users
+            searchUsers(text);
         }
         setText("");
     }

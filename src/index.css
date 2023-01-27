@@ -253,7 +253,7 @@ UserSearch
 */
 .user-search-container {
     max-width: 60rem;
-    min-height: 100vh;
+    min-height: 50vh;
     position: relative;
 }
 
