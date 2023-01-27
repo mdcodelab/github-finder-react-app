@@ -7,16 +7,17 @@ import Navbar from './components/layouts/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Notfound from './pages/Notfound';
-
+//global contexts
 import { GitHubProvider} from './context/GitHubContext';
-
+import { AlertProvider} from './context/AlertContext';
 
 
 function App() {
   return (
     <Router>
       <GitHubProvider>
-      <div className="container">
+        <AlertProvider>
+        <div className="container">
         <Navbar></Navbar>
         <main>
           <Routes>
@@ -27,6 +28,7 @@ function App() {
         </main>
         <Footer></Footer>
       </div>
+        </AlertProvider>
       </GitHubProvider>
     </Router>
   );
