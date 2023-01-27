@@ -161,7 +161,11 @@ UserResults
 .spinner {
     width: 50vh;
     height: 50vh;
-    margin: 2rem auto;
+    margin: 0 auto;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .spinner img {
@@ -195,7 +199,6 @@ object-fit: cover;
 UserItem
 =============
 */
-
 .card {
 width: 12rem;
 height: 10rem;
@@ -243,6 +246,76 @@ transition: 0.3s ease-in-out;
 .link-user:hover {
     color: #ff6a95;
 }
+
+/*===========
+UserSearch
+=============
+*/
+.user-search-container {
+    max-width: 60rem;
+    min-height: 100vh;
+    position: relative;
+}
+
+.user-search {
+    max-width: 30rem;
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 3rem;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input {
+    flex: 1;
+    padding: 0.7rem;
+    border: 0.1rem solid #e2e2e2;
+    outline: none;
+    border-radius: 0.3rem;
+}
+
+input:focus {
+    outline: 0.2rem solid #8A2BE2;
+}
+
+.btn {
+    color: #e2e2e2;
+    display: block;
+    width: 5rem;
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+    background-color: #8A2BE2;
+    border: 0.05rem solid  #e2e2e2;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:active {
+transform: scale(1.1);
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+.btn-search {
+    display: inline-block;
+    margin-left: .3rem;
+}
+
+.btn-clear {
+    display: block;
+    margin: 3rem auto 0;
+}
+
 
 
 

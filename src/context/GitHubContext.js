@@ -7,22 +7,30 @@ const url = "https://api.github.com/users";
 
 const initialState={
   users: [],
-  loading: true
+  loading: false
 }
 
 const GitHubProvider = ({children}) => {
 
     const [state, dispatch] =React.useReducer(gitHubReducer, initialState);
 
+    
+//get the initial users - for testing purpose:
   async function fetchUsers () {
+    setLoading();
     const response = await fetch(url);
     const data = await response.json();
     return dispatch({type: "GET_USERS", payload: data})
   }
 
-  React.useEffect(() => {
-    fetchUsers();
-  }, [])
+  // React.useEffect(() => {
+  //   fetchUsers();
+  // }, [])
+
+    //set loading
+    function setLoading () {
+      dispatch({type: "SET_LOADING"})
+    }
 
 
 
