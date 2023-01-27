@@ -1,9 +1,11 @@
 import React from 'react';
-import { useGitHubGlobal } from '../../context/GitHubContext';
+import { useGlobalAlert } from '../../context/AlertContext';
+import { useGitHubGlobal } from '../../context/GitHubContext'; 
 
 function UserSearch() {
     const[text, setText]=React.useState("");
     const{users, searchUsers, clearUsers}=useGitHubGlobal();
+    const{setAlert}=useGlobalAlert();
 
     function onChange(e) {
         setText(e.target.value);
@@ -12,7 +14,7 @@ function UserSearch() {
     function onSubmit(e) {
         e.preventDefault();
         if(!text) {
-            alert("Please enter something!");
+            setAlert("Please enter something!", "error");
         } else {
             //search users
             searchUsers(text);

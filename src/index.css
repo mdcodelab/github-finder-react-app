@@ -93,6 +93,7 @@ main {
     margin: 0 auto;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 /*===========
@@ -316,6 +317,32 @@ transform: scale(1.1);
     margin: 3rem auto 0;
 }
 
+/*===========
+Alert
+=============
+*/
+p.alert {
+    color: #e2e2e2;
+    max-width: 70vw;
+    height: 3rem;
+    text-align: center;
+    position: absolute;
+    top: 28vh;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+}
+
+.alert-icon {
+    display: inline-block;
+    font-size: 1.8rem;
+    margin-right: 0.3rem;
+    color: #ff6a95;
+}
 
 
 

@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 //components
 import Footer from './components/layouts/Footer';
 import Navbar from './components/layouts/Navbar';
+import Alert from "./components/layouts/Alert";
 //pages
 import Home from './pages/Home';
 import About from './pages/About';
@@ -20,6 +21,7 @@ function App() {
         <div className="container">
         <Navbar></Navbar>
         <main>
+          <Alert></Alert>
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/about" element={<About></About>}></Route>
