@@ -10,11 +10,17 @@ const AlertProvider = ({children}) => {
     const[state, dispatch]=React.useReducer(alertReducer, initialState);
 
     //set an alert
-const setAlert =(msg, type) => {
-    return dispatch({type: "SET_ALERT", payload: {msg, type}})
-    setTimeout(()=> {
-        dispatch({type: "REMOVE_ALERT"})
-    }, 3000)
+    let timeoutId=null;
+
+    const setAlert =(msg, type) => {
+        dispatch({type: "SET_ALERT", payload: {msg, type}})
+        timeoutId = setTimeout(()=> {
+            dispatch({type: "REMOVE_ALERT"})
+        }, 3000)
+    }
+
+const clearTimeout = () => {
+    clearTimeout(timeoutId);
 }
 
     return <AlertContext.Provider value={{
