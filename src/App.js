@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Footer from './components/layouts/Footer';
 import Navbar from './components/layouts/Navbar';
 import Alert from "./components/layouts/Alert";
+import User from "./components/users/User";
 //pages
 import Home from './pages/Home';
 import About from './pages/About';
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/about" element={<About></About>}></Route>
+            <Route path='/users/:login' element={<User></User>}></Route>
             <Route path="/*" element={<Notfound></Notfound>}></Route>
           </Routes>
         </main>

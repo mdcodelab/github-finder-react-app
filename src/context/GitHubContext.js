@@ -3,11 +3,10 @@ import gitHubReducer from "./GitHubReducer";
 
 const GitHubContext=React.createContext();
 
-const url = "https://api.github.com/users";
-const url_search_user= "https://api.github.com/search/users";
 
 const initialState={
   users: [],
+  user: [],
   loading: false
 }
 
@@ -30,11 +29,15 @@ const GitHubProvider = ({children}) => {
 
   //search users
   async function searchUsers(text) {
-    let response = await fetch(`https://api.github.com/search/users?q=${text}`);
+    let response = await fetch(`https://api.github.com/search/users?q=${text}`, {
+      headers: {
+        Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`
+      }
+    });
     setLoading();
     let data = await response.json();
     let items=data.items;
-    console.log(items);
+    //console.log(items);
     dispatch({type: "GET_USERS", payload: items})
   }
 
@@ -44,7 +47,9 @@ const GitHubProvider = ({children}) => {
   }
 
   
+    
 
+  
     //set loading
     function setLoading () {
       dispatch({type: "SET_LOADING"})
@@ -53,8 +58,7 @@ const GitHubProvider = ({children}) => {
 
 
     return <GitHubContext.Provider value ={{
-      users: state.users,
-      loading: state.loading,
+      ...state,
       searchUsers,
       clearUsers
     }}>
