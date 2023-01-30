@@ -29,7 +29,10 @@ const GitHubProvider = ({children}) => {
 
   //search users
   async function searchUsers(text) {
-    let response = await fetch(`https://api.github.com/search/users?q=${text}`);
+    let response = await fetch(`https://api.github.com/search/users?q=${text}`, 
+    {headers: {
+      Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`
+    }});
     setLoading();
     let data = await response.json();
     let items=data.items;

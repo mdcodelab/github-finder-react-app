@@ -11,10 +11,14 @@ function User({match}) {
 
     const {login} = useParams();
   
-
+//get user
     async function getUser() {
       try {
-        let response = await fetch(`https://api.github.com/users/${login}`);
+        let response = await fetch(`https://api.github.com/users/${login}`, {
+          headers: {
+            Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`
+          }
+        });
       let data = await response.json();
       console.log(data);
         setUser(data);
@@ -24,36 +28,30 @@ function User({match}) {
       }
     }
 
+    async function getRepos () {
+      let response = await fetch(`https://api.github.com/users/${login}/repos`, {
+        headers: {
+          Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`
+        }
+      })
+      let data = await response.json();
+      console.log(data);
+    }
+
+
     React.useEffect(() => {
       getUser();
+      getRepos();
     }, [login]);
   
-
     if(loading) {
       return (<Spinner></Spinner>)
     }
 
     if(!user) {
       return (<h2>No user to display</h2>)
-    } else {
-    //   const {
-    //     name,
-    //     type,
-    //     avatar_url,
-    //     location,
-    //     bio,
-    //     blog,
-    //     twitter_username,
-    //     login,
-    //     html_url,
-    //     followers,
-    //     following,
-    //     public_repos,
-    //     public_gists,
-    //     hireable
-    //   } = user;
     }
-
+      
 
   return (
     <div className="user-section">
@@ -127,6 +125,10 @@ function User({match}) {
                   {user.public_gists ? <span className="bottom num">{user.public_gists}</span> : <span className="bottom num">0</span>}
                 </div>
             </div>
+          </div>
+          <div className="latest-repos">
+            <h2>Latest Repositories</h2>
+            
           </div>
       </div>
     </div>
