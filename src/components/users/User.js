@@ -1,13 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Spinner from "../assets/Spinner";
-import {FaCodepen, FaStore, FaUserFriends, FaUsers} from "react-icons/fa";
+import {FaCodepen, FaUserFriends} from "react-icons/fa";
 import {Link} from "react-router-dom";
+import RepoList from "../repos/RepoList";
 
 
 function User({match}) {
     let [user, setUser]=React.useState({});
     const[loading, setLoading]=React.useState(true);
+
 
     const {login} = useParams();
   
@@ -28,22 +30,12 @@ function User({match}) {
       }
     }
 
-    async function getRepos () {
-      let response = await fetch(`https://api.github.com/users/${login}/repos`, {
-        headers: {
-          Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`
-        }
-      })
-      let data = await response.json();
-      console.log(data);
-    }
-
-
     React.useEffect(() => {
       getUser();
-      getRepos();
+    
     }, [login]);
-  
+
+    
     if(loading) {
       return (<Spinner></Spinner>)
     }
@@ -52,7 +44,6 @@ function User({match}) {
       return (<h2>No user to display</h2>)
     }
       
-
   return (
     <div className="user-section">
       <Link to="/" className="btn back">Back to Search</Link>
@@ -126,9 +117,9 @@ function User({match}) {
                 </div>
             </div>
           </div>
-          <div className="latest-repos">
-            <h2>Latest Repositories</h2>
-            
+          <div className="repos-container">
+            <h2>Repositories</h2>
+            <RepoList></RepoList>
           </div>
       </div>
     </div>
