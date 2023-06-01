@@ -78,7 +78,7 @@ Footer
 */
 
 .footer-container {
-    width: 35%;
+    width: 36%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -88,7 +88,7 @@ Footer
 
 .footer-container p{
     color: #e2e2e2;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     white-space:nowrap;
 }
 
@@ -130,6 +130,21 @@ About, NotFound
     padding-top: 0.7rem;
     font-size: 1rem;
     text-align: center;
+}
+
+.about a {
+    color: #e2e2e2;
+    transition: 0.3s ease;
+    display: block;
+    font-weight: 600;
+}
+
+.about a:hover {
+    color: #ff6a95;
+}
+
+.about p, .about a {
+    margin-bottom: 1rem;
 }
 
 .title {
