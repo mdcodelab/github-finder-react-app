@@ -10,7 +10,7 @@ body {
 
 .container {
     width: 90vw;
-    min-height: 100vh;
+    min-height: calc(100vh - 6rem);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@ Navbar
 
 .navbar-container {
     width: 100%;
-    height: 100%;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,11 +79,13 @@ Footer
 
 .footer-container {
     width: 36%;
+    height: 2rem;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     padding: 1rem 0;
+    padding-top: 0;
 }
 
 .footer-container p{
@@ -689,6 +691,7 @@ responsive
 @media only screen and (max-width: 420px) {
     .navbar-container {
         flex-direction: column;
+        height: 100%;
     }
     .navbar-links {
         width: 70%;
